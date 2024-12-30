@@ -23,7 +23,7 @@ spec:
             secretKeyRef:
               name: mysql-secret
               key: MYSQL_ROOT_PASSWORD
-        - name: MYSQL_DATABASE 
+        - name: MYSQL_DATABASE
           value: app_db
         - name: MYSQL_USER
           valueFrom:
@@ -41,7 +41,8 @@ spec:
         volumeMounts:    
         - name: data
           mountPath: /var/lib/mysql
-          subPath: mysql
+        - name: init-sql
+          mountPath: /docker-entrypoint-initdb.d
         resources:
           requests:
             memory: "500Mi"
@@ -67,7 +68,7 @@ spec:
           name: mysql-config
   volumeClaimTemplates:
   - metadata:
-     name: data
+      name: data
     spec:
       accessModes: ["ReadWriteOnce"]
       resources:

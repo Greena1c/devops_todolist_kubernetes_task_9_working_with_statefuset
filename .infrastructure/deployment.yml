@@ -61,10 +61,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: app-secret
-              key: MYSQL_CONNECTION
-            configMapKeyRef:
-              name: app-config
-              key: PYTHONUNBUFFERED
+              key: DB_CONNECTION
         - name: SECRET_KEY
           valueFrom:
             secretKeyRef:

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-kind create cluster --config kind
-kubectl apply -f mysql-configmap.yaml
+kind create cluster --config cluster.yml
+kubectl apply -f mysql-configMap.yml
 kubectl apply -f mysql-secret.yaml
 kubectl apply -f pv.yaml
 kubectl apply -f pvc.yaml
